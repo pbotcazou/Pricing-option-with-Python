@@ -23,9 +23,8 @@ def binomial_tree_option(
     p = (a - d) / (u - d)
     q = 1 - p
 
-    # ---------------------------
-    # 1️⃣ Arbre du sous-jacent
-    # ---------------------------
+#Arbre du sous-jacent
+
 
     stock_tree = []
 
@@ -36,9 +35,9 @@ def binomial_tree_option(
             level.append(price)
         stock_tree.append(level)
 
-    # ---------------------------
-    # 2️⃣ Payoff maturité
-    # ---------------------------
+
+    #  Payoff maturité
+
 
     option_tree = []
     last_level = []
@@ -51,9 +50,9 @@ def binomial_tree_option(
 
     option_tree.append(last_level)
 
-    # ---------------------------
-    # 3️⃣ Backward induction
-    # ---------------------------
+
+    #  Backward induction
+
 
     for i in range(N - 1, -1, -1):
         level = []
@@ -66,9 +65,7 @@ def binomial_tree_option(
 
         option_tree.insert(0, level)
 
-    # ---------------------------
-    # Affichage propre
-    # ---------------------------
+
     print("u=",u)
     print("d=",d)
     print("a=",a)
